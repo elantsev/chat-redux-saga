@@ -1,16 +1,21 @@
-import * as types from "../constants/ActionTypes";
+import { ADD_MESSAGE, MESSAGE_RECEIVED } from "../constants/ActionTypes";
 
-const users = (state = [], action) => {
+function messages(state = [], action) {
   switch (action.type) {
-    case types.ADD_USER:
-      return [...state, { id: action.id, name: action.name }];
-
-    case types.USERS_LIST:
-      return action.user;
+    case ADD_MESSAGE:
+    case MESSAGE_RECEIVED:
+      return [
+        ...state,
+        {
+          message: action.message,
+          author: action.author,
+          id: action.id
+        }
+      ];
 
     default:
       return state;
   }
-};
+}
 
-export default users;
+export default messages;

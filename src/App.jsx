@@ -1,13 +1,14 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import AddMessage from "./components/AddMessages";
 
 function App() {
   return (
     <div id="container">
-      <Sidebar />
+      {/* <Sidebar /> */}
       <section>
-        <MessagesList />
+        {/* <MessagesList /> */}
         <AddMessage />
       </section>
     </div>
