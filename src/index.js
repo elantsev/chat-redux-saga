@@ -5,10 +5,11 @@ import * as serviceWorker from "./serviceWorker";
 import App from "./App";
 
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import { createStore, compose, applyMiddleware } from "redux";
 import { chat } from "./reducers";
 
-const store = createStore(chat);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(chat, composeEnhancers(applyMiddleware()));
 
 ReactDOM.render(
   <Provider store={store}>
