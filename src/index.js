@@ -7,9 +7,12 @@ import App from "./App";
 import { Provider } from "react-redux";
 import { createStore, compose, applyMiddleware } from "redux";
 import { chat } from "./reducers";
+import { addUser } from "./actions/actions";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(chat, composeEnhancers(applyMiddleware()));
+
+store.dispatch(addUser('Me'))
 
 ReactDOM.render(
   <Provider store={store}>

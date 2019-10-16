@@ -3,11 +3,12 @@ import logo from "./logo.svg";
 import "./App.css";
 import AddMessage from "./components/AddMessages";
 import MessagesList from "./components/MessagesList";
+import Users from "./components/Users";
 
 function App() {
   return (
     <div id="container">
-      {/* <Sidebar /> */}
+      <Users />
       <section>
         <MessagesList />
         <AddMessage />
