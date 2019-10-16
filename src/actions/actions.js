@@ -16,7 +16,7 @@ export const addUser = name => ({
   name
 });
 
-export const messageReceiver = (message, author) => ({
+export const messageReceived = (message, author) => ({
   type: types.MESSAGE_RECEIVED,
   id: nextMessageId++,
   message,
