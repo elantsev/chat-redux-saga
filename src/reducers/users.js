@@ -6,7 +6,7 @@ const users = (state = [], action) => {
       return [...state, { id: action.id, name: action.name }];
 
     case types.USERS_LIST:
-      return action.user;
+      return [...action.users];
 
     default:
       return state;
