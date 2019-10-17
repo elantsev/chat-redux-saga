@@ -17,8 +17,8 @@ wss.on("connection", ws => {
     const data = JSON.parse(message);
     switch (data.type) {
       case "ADD_USER": {
-        index = users.length;
-        users.push({ name: data.name, id: index + 1 });
+        // index = Date.now();
+        users.push({ name: data.name, id: Date.now() });
         ws.send(JSON.stringify({ type: "USERS_LIST", users }));
         broadcast({ type: "USERS_LIST", users }, ws);
         break;
@@ -37,7 +37,6 @@ wss.on("connection", ws => {
 
   ws.on("close", () => {
     users.splice(index, 1);
-    console.log(users);
     broadcast({ type: "USERS_LIST", users }, ws);
   });
 });
